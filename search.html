@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="carRentalApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Car Rental | Search Results</title>
+</head>
+<body ng-controller="MainController">
+    <header>
+        <nav>
+            <div class="nav__header">
+                <div class="nav__logo">
+                    <a href="#">RENTAL</a>
+                </div>
+                <div class="nav__menu__btn" id="menu-btn">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="login.html">Login/Register</a></li>
+                <li><a href="home.html#services">Services</a></li>
+                <li><a href="home.html#about">About</a></li>
+                <li><a href="home.html#help">Help</a></li>
+            </ul>
+            <div class="nav__btn">
+                <button class="btn">Get Started</button>
+            </div>
+        </nav>
+    </header>
+    <section class="section__container" id="services">
+        <h2 class="section__header">Available Cars</h2>
+        <div ng-repeat="car in searchResults" class="car__card">
+            <img ng-src="{{car.image_url}}" alt="{{car.name}}">
+            <h4>{{car.name}}</h4>
+            <p>{{car.type}}</p>
+            <p>{{car.speed}} km/h</p>
+            <p>{{car.seats}} seats</p>
+            <p>{{car.milage}} mileage</p>
+            <p>${{calculatePrice(car.price_per_day)}} / total</p>
+            <button class="btn" ng-click="bookCar(car.id)">Book Now</button>
+        </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

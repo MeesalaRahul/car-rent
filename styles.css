@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Syncopate:wght@400;700&display=swap");
+
+:root {
+    --primary-color: #f5b754;
+    --primary-color-dark: #d6a04a;
+    --text-dark: #15191d;
+    --text-light: #737373;
+    --extra-light: #e5e5e5;
+    --white: #ffffff;
+    --max-width: 1200px;
+    --header-font: "Syncopate", sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--extra-light);
+}
+
+.section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+}
+
+.section__header {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--header-font);
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: var(--text-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+}
+
+header {
+    background-image: url("assets/header-bg.png");
+    background-size: cover;
+    background-position: center;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    background-color: var(--primary-color);
+    z-index: 10;
+}
+
+.nav__header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo a {
+    font-size: 1.8rem;
+    font-family: var(--header-font);
+    color: var(--white);
+}
+
+.nav__menu__btn {
+    font-size: 1.5rem;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.nav__links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--primary-color);
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+}
+
+.nav__links.open {
+    transform: translateY(0);
+}
+
+.nav__links a {
+    color: var(--white);
+    font-weight: 500;
+}
+
+.nav__links a:hover {
+    color: var(--text-dark);
+}
+
+.header__container {
+    padding: 8rem 1rem;
+    text-align: center;
+}
+
+.header__container h1 {
+    font-size: 4rem;
+    font-family: var(--header-font);
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+.header__container form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.input__group {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input__group label {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.input__group input,
+.input__group select {
+    padding: 0.8rem;
+    border: 1px solid var(--text-light);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.car__card {
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.car__card img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.car__card h4 {
+    margin: 1rem 0;
+    color: var(--text-dark);
+}
+
+.car__card p {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.form__container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form__container p {
+    margin: 1rem 0;
+}
+
+.booking__container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--text-light);
+}
+
+.footer__col h4 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.footer__links a {
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer__links a:hover {
+    color: var(--primary-color);
+}
+
+.footer__socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer__socials a {
+    color: var(--text-light);
+    font-size: 1.5rem;
+}
+
+.footer__socials a:hover {
+    color: var(--primary-color);
+}
+
+.footer__bar {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-light);
+}

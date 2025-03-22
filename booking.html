@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="carRentalApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Car Rental | Booking</title>
+</head>
+<body ng-controller="MainController">
+    <section class="section__container">
+        <h2 class="section__header">Book Your Car</h2>
+        <div class="booking__container">
+            <div class="car__card">
+                <img ng-src="{{selectedCar.image_url}}" alt="{{selectedCar.name}}">
+                <h4>{{selectedCar.name}}</h4>
+                <p>{{selectedCar.type}}</p>
+                <p>${{calculatePrice(selectedCar.price_per_day)}} / total</p>
+            </div>
+            <form ng-submit="confirmBooking()">
+                <div class="input__group">
+                    <label>Fuel Option</label>
+                    <select ng-model="booking.with_fuel" required>
+                        <option value="true">With Fuel</option>
+                        <option value="false">Without Fuel</option>
+                    </select>
+                </div>
+                <div ng-show="booking.with_fuel === 'true'">
+                    <p>Base Price: ${{calculatePrice(selectedCar.price_per_day)}}</p>
+                    <p>Fuel Cost: $50</p>
+                    <p>Tax (10%): ${{calculatePrice(selectedCar.price_per_day) * 0.1}}</p>
+                    <p><strong>Total Price: ${{calculateTotalPrice(selectedCar.price_per_day)}}</strong></p>
+                </div>
+                <div ng-show="booking.with_fuel === 'false'">
+                    <p>Base Price: ${{calculatePrice(selectedCar.price_per_day)}}</p>
+                    <p>Tax (10%): ${{calculatePrice(selectedCar.price_per_day) * 0.1}}</p>
+                    <p><strong>Total Price: ${{calculatePrice(selectedCar.price_per_day) * 1.1}}</strong></p>
+                </div>
+                <button class="btn" type="submit">Proceed to Payment</button>
+            </form>
+            <div ng-show="showPayment">
+                <h3>Payment Options</h3>
+                <button class="btn" ng-click="pay('Credit Card')">Credit Card</button>
+                <button class="btn" ng-click="pay('PayPal')">PayPal</button>
+                <button class="btn" ng-click="pay('Google Pay')">Google Pay</button>
+            </div>
+        </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

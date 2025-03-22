@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="carRentalApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Car Rental | Login/Register</title>
+</head>
+<body ng-controller="MainController">
+    <section class="section__container">
+        <h2 class="section__header">Login/Register</h2>
+        <div class="form__container">
+            <button class="btn" ng-click="showLogin = true; showRegister = false">Login</button>
+            <p ng-show="showLogin">If you don't have an account? <button class="btn" ng-click="showLogin = false; showRegister = true">Register</button></p>
+            <div ng-show="showLogin">
+                <form ng-submit="login()">
+                    <div class="input__group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" ng-model="user.email" required>
+                    </div>
+                    <div class="input__group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" ng-model="user.password" required>
+                    </div>
+                    <button class="btn" type="submit">Login</button>
+                </form>
+            </div>
+            <div ng-show="showRegister && !otpSent">
+                <form ng-submit="register()">
+                    <div class="input__group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" ng-model="user.username" required>
+                    </div>
+                    <div class="input__group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" ng-model="user.email" required>
+                    </div>
+                    <div class="input__group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" ng-model="user.password" required>
+                    </div>
+                    <div class="input__group">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone" ng-model="user.phone_number" required>
+                    </div>
+                    <button class="btn" type="submit">Proceed</button>
+                </form>
+            </div>
+            <div ng-show="otpSent">
+                <form ng-submit="verifyOtp()">
+                    <div class="input__group">
+                        <label for="otp">Enter OTP</label>
+                        <input type="text" id="otp" ng-model="user.otp" required>
+                    </div>
+                    <button class="btn" type="submit">Verify</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
